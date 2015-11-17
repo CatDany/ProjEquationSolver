@@ -12,34 +12,26 @@ public class Main
 	public Main()
 	{
 		reader = new BufferedReader(new InputStreamReader(System.in));
-		println("Добро пожаловать в программу для решения уравнений. Вы можете написать 'exit' в любое время, если хотите выйти.");
+		println("Добро пожаловать в программу для решения квадратных уравнений.");
 		while (true)
 		{
-			String eqt = readLine("Какое уравнение Вы хотите решить? Напишите: 2 для квадратного; 3 для кубического.");
-			if (eqt.equals("2"))
+			println("Представьте квадратное уравнение в виде ax^2 + bx + c = 0 и запишите его коэффициенты в алфавитном порядке, разделяя пробелом.");
+			coef: while (true)
 			{
-				println("Представьте уравнение в виде ax^2 + bx + c = 0 и запишите его коэффициенты в алфавитном порядке, разделяя пробелом.");
-				coef: while (true)
+				try
 				{
-					try
-					{
-						String s = readLine("a b c");
-						String[] coef = s.split(" ", 3);
-						double[] roots = solveQuadratic(Double.parseDouble(coef[0]), Double.parseDouble(coef[1]), Double.parseDouble(coef[2]));
-						println("Уравнение '%sx^2 + %sx + %s = 0' решено.");
-						println("x1 = %s", roots[0]);
-						println("x2 = %s", roots[1]);
-						break coef; 
-					}
-					catch (Throwable t)
-					{
-						err(t, "Неправильный формат. Пример: '1 1 -2' для x^2 + x - 2 = 0");
-					}
+					String s = readLine("a b c").trim();
+					String[] coef = s.split(" ", 3);
+					double[] roots = solveQuadratic(Double.parseDouble(coef[0]), Double.parseDouble(coef[1]), Double.parseDouble(coef[2]));
+					println("Уравнение '%sx^2 + %sx + %s = 0' решено.", coef[0], coef[1], coef[2]);
+					println("x1 = %s", roots[0]);
+					println("x2 = %s", roots[1]);
+					break coef; 
 				}
-			}
-			else if (eqt.equals("exit"))
-			{
-				break;
+				catch (Throwable t)
+				{
+					err(t, "Неправильный формат. Пример: '1 1 -2' для x^2 + x - 2 = 0");
+				}
 			}
 		}
 	}
