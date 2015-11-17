@@ -1,4 +1,4 @@
-package catdany.proj.equationsolver;
+п»їpackage catdany.proj.equationsolver;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,13 +12,13 @@ public class Main
 	public Main()
 	{
 		reader = new BufferedReader(new InputStreamReader(System.in));
-		println("Добро пожаловать в программу для решения уравнений. Вы можете написать 'exit' в любое время, если хотите выйти.");
+		println("Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ РїСЂРѕРіСЂР°РјРјСѓ РґР»СЏ СЂРµС€РµРЅРёСЏ СѓСЂР°РІРЅРµРЅРёР№. Р’С‹ РјРѕР¶РµС‚Рµ РЅР°РїРёСЃР°С‚СЊ 'exit' РІ Р»СЋР±РѕРµ РІСЂРµРјСЏ, РµСЃР»Рё С…РѕС‚РёС‚Рµ РІС‹Р№С‚Рё.");
 		while (true)
 		{
-			String eqt = readLine("Какое уравнение Вы хотите решить? Напишите: 2 для квадратного; 3 для кубического.");
+			String eqt = readLine("РљР°РєРѕРµ СѓСЂР°РІРЅРµРЅРёРµ Р’С‹ С…РѕС‚РёС‚Рµ СЂРµС€РёС‚СЊ? РќР°РїРёС€РёС‚Рµ: 2 РґР»СЏ РєРІР°РґСЂР°С‚РЅРѕРіРѕ; 3 РґР»СЏ РєСѓР±РёС‡РµСЃРєРѕРіРѕ.");
 			if (eqt.equals("2"))
 			{
-				println("Представьте уравнение в виде ax^2 + bx + c = 0 и запишите его коэффициенты в алфавитном порядке, разделяя пробелом.");
+				println("РџСЂРµРґСЃС‚Р°РІСЊС‚Рµ СѓСЂР°РІРЅРµРЅРёРµ РІ РІРёРґРµ ax^2 + bx + c = 0 Рё Р·Р°РїРёС€РёС‚Рµ РµРіРѕ РєРѕСЌС„С„РёС†РёРµРЅС‚С‹ РІ Р°Р»С„Р°РІРёС‚РЅРѕРј РїРѕСЂСЏРґРєРµ, СЂР°Р·РґРµР»СЏСЏ РїСЂРѕР±РµР»РѕРј.");
 				coef: while (true)
 				{
 					try
@@ -26,14 +26,14 @@ public class Main
 						String s = readLine("a b c");
 						String[] coef = s.split(" ", 3);
 						double[] roots = solveQuadratic(Double.parseDouble(coef[0]), Double.parseDouble(coef[1]), Double.parseDouble(coef[2]));
-						println("Уравнение '%sx^2 + %sx + %s = 0' решено.");
+						println("РЈСЂР°РІРЅРµРЅРёРµ '%sx^2 + %sx + %s = 0' СЂРµС€РµРЅРѕ.");
 						println("x1 = %s", roots[0]);
 						println("x2 = %s", roots[1]);
 						break coef; 
 					}
 					catch (Throwable t)
 					{
-						err(t, "Неправильный формат. Пример: '1 1 -2' для x^2 + x - 2 = 0");
+						err(t, "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ С„РѕСЂРјР°С‚. РџСЂРёРјРµСЂ: '1 1 -2' РґР»СЏ x^2 + x - 2 = 0");
 					}
 				}
 			}
